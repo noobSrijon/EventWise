@@ -16,29 +16,42 @@ To get started with EventWise, follow these steps:
 
 1. Clone the repository:
 
-```
-git clone https://github.com/noobSrijon/EventWise.git
-```
+   ```bash
+   git clone https://github.com/your-username/EventWise.git
+   ```
 
 2. Install the required dependencies:
 
-```
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Configure the application settings:
+3. Create a service account and download the JSON key file from the Google Cloud Console.
 
+4. Copy the downloaded JSON key file to the project's root directory and rename it to `json_key_file.json`.
+
+5. Open `app.py` and replace the `file={}` in the following line with the path to your JSON key file:
+
+   ```python
+   gc = gspread.service_account(filename='path/to/your/json_key_file.json')
+   ```
+
+6. Customize your Google Sheet:
+
+   - Open the Google Sheet you want to use for EventWise.
+   - Add the following column headers in the first row of the sheet: `Time`, `ID`, `Name`, `Roll`, `Amount`, `Payment Method`, `Transaction Number`, `Image Url`, `Email`, `Phone Number`, and `Status`.
+7.Configure the application settings:
    - Update the admin panel credential configurations in `config.py`.
    - Set up the SMS gateway API credentials in `config.py` for sending SMS confirmations and you may also change the API URL with your provider's URL.
+   - 
+8. Run the application:
 
-4. Run the application:
+   ```bash
+   python app.py
+   ```
 
-```
-python app.py
-```
+9. Access the application in your web browser at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-5. Access the application in your web browser at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
-6. 
 ## Contributing
 
 We welcome contributions to enhance EventWise. To contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
