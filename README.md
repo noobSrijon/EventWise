@@ -28,8 +28,8 @@ pip install -r requirements.txt
 
 3. Configure the application settings:
 
-   - Update the database configurations in `config.py`.
-   - Set up the SMS gateway API credentials in `config.py` for sending SMS confirmations.
+   - Update the admin panel credential configurations in `config.py`.
+   - Set up the SMS gateway API credentials in `config.py` for sending SMS confirmations and you may also change the API URL with your provider's URL.
 
 4. Run the application:
 
@@ -38,9 +38,7 @@ python app.py
 ```
 
 5. Access the application in your web browser at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
-
-For detailed documentation and usage examples, refer to the [Wiki](https://github.com/noobSrijon/EventWise/wiki) section.
-
+6. 
 ## Contributing
 
 We welcome contributions to enhance EventWise. To contribute, please follow our [contribution guidelines](CONTRIBUTING.md).
