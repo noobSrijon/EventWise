@@ -38,6 +38,6 @@ By contributing to EventWise, you agree that your contributions will be licensed
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to reach out to the project maintainers at eventwise@example.com.
+If you have any questions or need further assistance, feel free to reach out to the project maintainers at srijonkumar18@gmail.com.
 
 We appreciate your contributions and look forward to working together to improve EventWise!
