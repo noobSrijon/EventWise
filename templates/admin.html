@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+  rel="stylesheet"
+/>
+<style type="text/css">
+ .popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup p {
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 40vh;
+}
+
+.popup .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.popup .buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.popup .buttons button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.popup .buttons button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.popup .buttons button:hover {
+  opacity: 0.8;
+}
+
+
+
+  html,
+body,
+.intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card {
+  border-radius: .5rem;
+}
+
+.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 2em;
+  backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+}
+
+.brand-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  opacity: 0.8;
+}
+
+</style>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
+></script>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="navbar-brand">
+    <span class="brand-text">Admin Panel</span>
+  </div>
+  <div class="navbar-menu">
+    <a href="/logout"><button class="btn btn-danger logout-button">Logout</button></a>
+  </div>
+</nav>
+
+  <section class="intro">
+  <div class="bg-image h-100" style="background-image: url('{{ url_for('static', filename='/images/image.png')}}'">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-borderless mb-0">
+                    <thead>
+                      <tr>
+                
+                        <th scope="col">Name</th>
+                        <th scope="col">Transaction ID</th>
+                        <th scope="col">Payment Method</th>
+                        <th scope="col">Ammount</th>
+                        <th scope="col">Confirm</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      {% for i in lis %}
+                      <tr>
+                        <td>{{i[2]}}</td>
+                        <td>{{i[6]}}</td>
+                        <td>{{i[5]}}</td>
+                        <td>{{i[4]}}</td>
+                        <td>
+
+                          <button id="confirm{{ loop.index }}" type="button" class="btn btn-success btn-sm px-3">
+                            <i class="fas fa-check"></i>
+                          </button>
+                          <div id="confirmpopup{{ loop.index }}" class="popup">
+                            <p>Do you want to confirm?</p>
+                            <div class="buttons">
+                              <a href="/confirm?id={{i[1]}}"><button style="background-color:green;" class="btn btn-success" id="yesButton">Yes</button></a>
+                              <button class="btn btn-danger" id="confirmclose{{ loop.index }}">Close</button>
+                            </div>
+                          </div>
+
+
+                        </td>
+                        <td>
+                          <button id="deny{{ loop.index }}" type="button" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-times"></i>
+                          </button>
+                          <div id="denypopup{{ loop.index }}" class="popup">
+                            <p>Do you want to delete?</p>
+                            <div class="buttons">
+                              <a href="/deny?id={{i[1]}}"><button style="background-color:green;" class="btn btn-success" id="yesButton">Yes</button></a>
+                              <button id="denyclose{{ loop.index }}" class="btn btn-danger">Close</button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <center>
+      <div class="container" style="margin-top:30px;">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3 class="card-title">Total Participants</h3>
+    <h2 class="card-text"><b>{{total}}</b></h2>
+    
+  </div>
+</div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3 class="card-title">Total Fund</h3>
+    <h2 class="card-text"><b>{{totaltk}}</b></h2>
+   
+  </div>
+</div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <h3 class="card-title">Payment Analysis</h3>
+          <p class="card-text">Cash: <b>{{totalcash}}</b></p>
+          <p class="card-text">bKash: <b>{{totalbkash}}</b></p>
+          <p class="card-text">Nagad: <b>{{totalnagad}}</b></p>
+          <p class="card-text">Rocket: <b>{{totalrocket}}</b></p>
+          
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+</center>
+
+  </div>
+
+</section>
+
+<script type="text/javascript">
+  {% for i in lis %}
+  document.getElementById("confirm{{ loop.index }}").addEventListener("click", function() {
+  document.getElementById("confirmpopup{{ loop.index }}").style.display = "block";
+});
+
+document.getElementById("confirmclose{{ loop.index }}").addEventListener("click", function() {
+  document.getElementById("confirmpopup{{ loop.index }}").style.display = "none";
+});
+
+ document.getElementById("deny{{ loop.index }}").addEventListener("click", function() {
+  document.getElementById("denypopup{{ loop.index }}").style.display = "block";
+});
+
+document.getElementById("denyclose{{ loop.index }}").addEventListener("click", function() {
+  document.getElementById("denypopup{{ loop.index }}").style.display = "none";
+});
+{% endfor %}
+</script>
+</body>
+</html>
