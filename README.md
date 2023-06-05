@@ -61,16 +61,17 @@ To get started with EventWise, follow these steps:
    - Add the following column headers in the first row of the sheet: `Time`, `ID`, `Name`, `Roll`, `Amount`, `Payment Method`, `Transaction Number`, `Image Url`, `Email`, `Phone Number`, and `Status`.
  
  7. Configure the application settings:
-   - Update the admin panel credential configurations in `config.py`.
-   - Set up the SMS gateway API credentials in `config.py` for sending SMS confirmations and you may also change the API URL with your provider's URL.
-   
-8. Run the application:
+    - Update the admin panel credential configurations in `config.py`.
+    - Set up the SMS gateway API credentials in `config.py` for sending SMS confirmations and you may also change the API URL with your provider's URL.
+
+8. Change information texts on index.html and also on other .html files.
+9. Run the application:
 
    ```bash
    python app.py
    ```
 
-9. Access the application in your web browser at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+10. Access the application in your web browser at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
 ## Contributing
 
