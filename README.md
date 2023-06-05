@@ -30,11 +30,30 @@ To get started with EventWise, follow these steps:
 
 4. Copy the downloaded JSON key file to the project's root directory and rename it to `json_key_file.json`.
 
-5. Open `app.py` and replace the `file={}` in the following line with the path to your JSON key file:
+5. Configure the application settings:
 
-   ```python
-   gc = gspread.service_account(filename='path/to/your/json_key_file.json')
-   ```
+   - Open `app.py` and replace the `file` dictionary in the following line with the content of your JSON key file:
+
+     ```python
+     file = {
+         "type": "service_account",
+         "project_id": "your-project-id",
+         "private_key_id": "your-private-key-id",
+         "private_key": "your-private-key",
+         "client_email": "your-client-email",
+         "client_id": "your-client-id",
+         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+         "token_uri": "https://oauth2.googleapis.com/token",
+         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+         "client_x509_cert_url": "your-client-x509-cert-url"
+     }
+     ```
+
+     Make sure to replace the placeholder values with the corresponding values from your JSON key file.
+     - Add Your sheet id on:
+       ```python
+       sh=gc.open_by_key("yout_google_sheet_id")
+       ```
 
 6. Customize your Google Sheet:
 
