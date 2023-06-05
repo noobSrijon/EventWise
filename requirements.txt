@@ -1,0 +1,4 @@
+Flask==2.3.2
+gspread==5.9.0
+requests==2.30.0
+Pillow==9.5.0

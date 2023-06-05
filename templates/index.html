@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
+
+  <meta name="viewport" content= "width=device-width, user-scalable=no">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <!-- Primary Meta Tags -->
+    <title>NDC Group-2's Rag Day Registration Portal</title>
+    <meta name="title" content="NDC Group-2's Rag Day Registration Portal">
+    <meta name="description" content="Step into the exclusive world of NDC Group-2's Rag Day Registration Portal. This platform is exclusively for Group 2 members, providing a unique opportunity to participate in our exceptional event. Immerse yourself in a day filled with camaraderie, creativity, and charitable endeavors. Register seamlessly as a Group 2 student, staff, or member and join us in making a difference.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://g2farewell.tech/">
+    <meta property="og:title" content="NDC Group-2's Rag Day Registration Portal">
+    <meta property="og:description" content="Step into the exclusive world of NDC Group-2's Rag Day Registration Portal. This platform is exclusively for Group 2 members, providing a unique opportunity to participate in our exceptional event. Immerse yourself in a day filled with camaraderie, creativity, and charitable endeavors. Register seamlessly as a Group 2 student, staff, or member and join us in making a difference.">
+    <meta property="og:image" content="{{ url_for('static', filename='meta.jpg')}}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://g2farewell.tech/">
+    <meta property="twitter:title" content="NDC Group-2's Rag Day Registration Portal">
+    <meta property="twitter:description" content="Step into the exclusive world of NDC Group-2's Rag Day Registration Portal. This platform is exclusively for Group 2 members, providing a unique opportunity to participate in our exceptional event. Immerse yourself in a day filled with camaraderie, creativity, and charitable endeavors. Register seamlessly as a Group 2 student, staff, or member and join us in making a difference.">
+    <meta property="twitter:image" content="{{ url_for('static', filename='meta.jpg')}}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+     <style>
+        .gradient-text {
+            background: linear-gradient(
+                to right,
+                #7953cd 20%,
+                #00affa 30%,
+                #0190cd 70%,
+                #764ada 80%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            font-weight: bolder;
+            background-size: 500% auto;
+            animation: textShine 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textShine {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+
+    </style>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/material-icon/css/material-design-iconic-font.min.css')}}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <h2 class="form-title">Group 2 <span class="form-title gradient-text">Rag Day</span> Payment Instruction</h2>
+                    <div class = "alert alert-info">
+                         <p>To proceed with your payment, please use one of the following methods:
+                            <p> Send money of at least <b>1200 TK + 10 TK charge, total 1210 </b>to any of this numbers</p><br>
+                            <ul>
+                            
+
+<li>bKash: <b>01308621205 </b></li>
+
+<li>Rocket: <b>01308621205</b></li>
+
+<li>Nagad: <b>01308621205</b></li>
+</ul>
+
+After making the payment, please copy the transaction number provided by your payment method. Then click the <b>"Continue to registration"</b> button bellow. Then paste this transaction number into the designated form or provide it to our representative for verification purposes. If you paid in cash, you can skip this payment step. Thank you for your payment, and if you need any further assistance, feel free to contact us.</p><br>
+<center><a href="/form"><button type="button" class="btn btn-primary btn-lg">Continue to Registration <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+</svg></button></a></center>
+                      </div>
+                    <br>
+                    <center>Website Developed By: <a href="https://www.facebook.com/srijon777xx">Srijon</a></center>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>
