@@ -6,14 +6,19 @@ import datetime
 import pytz
 import base64
 import random
+import config
 from PIL import Image, ImageDraw, ImageFont
 import os
 app = Flask(__name__)
 app.secret_key=os.urandom(24)
 
-adminusername="<Your Admin Panel Username Here>"
-adminpassword="<Your Admin Panel Password Here>"
-imgurclientid= "<Your Imgur Client Here>"
+
+
+
+admin_username = config.admin_username
+admin_password = config.admin_password
+imgur_client_id = config.imgur_client_id
+sms_api_key=config.sms_api_key
 #Change request url with your provider's url on confirm() for sending confirmation sms
 
 
@@ -46,7 +51,7 @@ def form():
     url = 'https://api.imgur.com/3/image'
 
     # Set headers with authorization
-    headers = {'Authorization': 'Client-ID {}'.format(imgurclientid)}
+    headers = {'Authorization': 'Client-ID {}'.format(imgur_client_id)}
 
     # Set the payload with the image file
     payload = {'image': (image.filename, image.stream, image.mimetype)}
@@ -145,7 +150,7 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
     
-    if username==adminusername and password==adminpassword:
+    if username==admin_username and password==admin_password:
       session['isadmin']=True
       return redirect(url_for('.admin'))
     else:
@@ -171,7 +176,7 @@ def confirm():
     number=str(worksheet.cell(x, 10).value)
     ud=str(worksheet.cell(x, 2).value)
     message="""Dear {}!Your payment for Rag Day event of NDC Group 2 has been verified. Download your ticket from https://g2farewell.me/ticket?id={} """.format(name,ud)
-    x=requests.get("http://bulksmsbd.net/api/smsapi?api_key=<Your Message Provider's API Key here>&type=text&number={}&senderid=8809617611744&message={}".format(number,message))
+    x=requests.get("http://bulksmsbd.net/api/smsapi?api_key={}&type=text&number={}&senderid=8809617611744&message={}".format(sms_api_key,number,message))
     #You can use different sms provider. Just change the request url with your provider's request url
     return redirect(url_for('.admin'))
   else:
