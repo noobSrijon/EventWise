@@ -1,4 +1,4 @@
-Certainly! Here's an example of contribution guidelines for your EventWise project:
+
 
 # Contribution Guidelines
 
