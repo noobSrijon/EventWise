@@ -17,7 +17,7 @@ To get started with EventWise, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/EventWise.git
+   git clone https://github.com/noobSrijon/EventWise.git
    ```
 
 2. Install the required dependencies:
